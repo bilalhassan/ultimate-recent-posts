@@ -48,9 +48,19 @@ function sc_urp_menu() {
 }
 
 function sc_urp_options(){
-
-
-
     include_once 'inc/options.php';
+
+}
+
+
+// create the shortcode
+add_shortcode('urp','set_urp');
+function set_urp($atts){
+    extract(shortcode_atts(array(
+        'id' => '1'
+    ), $atts));
+
+    include_once 'inc/urp-posts-slider.php';
+
 
 }
