@@ -12,7 +12,8 @@
     <?php
 
     $args = array(
-        'numberposts' => '5'
+        'numberposts' => '5',
+        'post_status' => 'publish'
     );
 
 
