@@ -12,6 +12,10 @@
 
 register_activation_hook(__FILE__, 'my_plugin_activate');
 
+if(!defined('SC_URP_VERSION'))
+    define('SC_URP_VERSION','1.0');
+
+
 function my_plugin_activate() {
     add_option('sc_urp_activation_redirect', true);
     sc_urp_register_options();
@@ -60,15 +64,16 @@ function sc_urp_load_styles_scripts(){
 
 
     //slider
-    wp_enqueue_style('sc_urp_slider_css',plugins_url() . '/ultimate-recent-posts/lib/slider/bjqs-1.3.css',false, '1.3');
-    wp_enqueue_script('sc_urp_slider_js',plugins_url() . '/ultimate-recent-posts/lib/slider/bjqs-1.3.min.js',array('jquery'),'1.3');
+    wp_enqueue_style('sc_urp_slider_css',plugins_url() . '/ultimate-recent-posts/lib/slider/camera.css',false, SC_URP_VERSION);
+    wp_enqueue_script('sc_urp_easing_js',plugins_url() . '/ultimate-recent-posts/lib/slider/jquery.easing.1.3.js',array('jquery'),SC_URP_VERSION);
+    wp_enqueue_script('sc_urp_slider_js',plugins_url() . '/ultimate-recent-posts/lib/slider/camera.min.js',false,SC_URP_VERSION);
 
 
     // plugin main style
     wp_enqueue_style('sc_urp_default_style',plugins_url() . '/ultimate-recent-posts/style/default.css',false, '1.0');
 
     // plugin main script
-    wp_enqueue_script('sc_urp_default_script',plugins_url() . '/ultimate-recent-posts/script/sc_urp_script.js',array('jquery'), '1.0');
+    wp_enqueue_script('sc_urp_default_script',plugins_url() . '/ultimate-recent-posts/script/sc_urp_script.js',array('jquery'), SC_URP_VERSION);
 
 
 }
@@ -84,35 +89,6 @@ function set_urp($atts){
     include_once 'inc/urp-posts-slider.php';
 
 
-}
-
-
-add_action( 'init', 'team_members' );
-function team_members() {
-    $labels = array(
-        'name'               => _x( 'Team', 'post type general name' ),
-        'singular_name'      => _x( 'Team Member', 'post type singular name' ),
-        'add_new'            => _x( 'Add New', 'book' ),
-        'add_new_item'       => __( 'Add New Member' ),
-        'edit_item'          => __( 'Edit Member' ),
-        'new_item'           => __( 'New Team Member' ),
-        'all_items'          => __( 'All Team Members' ),
-        'view_item'          => __( 'View Team Member' ),
-        'search_items'       => __( 'Search Team Members' ),
-        'not_found'          => __( 'No member found' ),
-        'not_found_in_trash' => __( 'No member found in the Trash' ),
-        'parent_item_colon'  => '',
-        'menu_name'          => 'Our Team'
-    );
-    $args = array(
-        'labels'        => $labels,
-        'description'   => 'Holds our team members specific data',
-        'public'        => true,
-        'menu_position' => 5,
-        'supports'      => array( 'title', 'editor', 'thumbnail'),
-        'has_archive'   => true,
-    );
-    register_post_type( 'team_member', $args );
 }
 
 
