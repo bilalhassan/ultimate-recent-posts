@@ -2,11 +2,9 @@
 /**
  * Creates the posts slider
  */
-
-
 ?>
 <div class="fluid_container">
-    <h2>Recent Posts</h2>
+    <h2></h2>
 
     <div class="camera_wrap" id="camera_wrap_2">
         <?php
@@ -26,9 +24,17 @@
         <?php } ?>
     </div>
 </div>
-
-
-
+<script>
+    jQuery(document).ready(function($){
+        $('#camera_wrap_2').camera({
+            height: '400px',
+            pagination: false,
+            thumbnails: false,
+            fx: 'simpleFade',
+            time: 4000
+        });
+    });
+</script>
 
 
 

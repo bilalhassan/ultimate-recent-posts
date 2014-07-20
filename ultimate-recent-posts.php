@@ -16,6 +16,8 @@ if(!defined('SC_URP_VERSION'))
     define('SC_URP_VERSION','1.0');
 
 
+
+
 function my_plugin_activate() {
     add_option('sc_urp_activation_redirect', true);
     sc_urp_register_options();
@@ -24,7 +26,8 @@ function my_plugin_activate() {
 function sc_urp_register_options() {
     // declare options array
     $sc_urp_options = array(
-        'sc_urp_title' => 'Popup Title',
+        'sc_urp_template' => 'slider',
+//        'sc_urp_background_color' => '#333333'
     );
     // check if option is set, if not, add it
     foreach ($sc_urp_options as $option_name => $option_value) {
@@ -53,6 +56,13 @@ function sc_urp_menu() {
 }
 
 function sc_urp_options(){
+
+    if(isset($_REQUEST['sc_urp_submit']) && $_REQUEST['sc_urp_submit'] == 'save'){
+
+        sc_urp_register_options();
+
+    }
+
     include_once 'inc/options.php';
 
 }
@@ -85,6 +95,8 @@ function set_urp($atts){
     extract(shortcode_atts(array(
         'id' => '1'
     ), $atts));
+
+
 
     include_once 'inc/urp-posts-slider.php';
 
