@@ -21,12 +21,17 @@
                             Slider
                         </option>
                         <option
-                            value="carrousel" <?php if ("carrousel" == get_option('sc_urp_template')) echo 'selected="selected"'; ?>>
-                            Carrousel
+                            value="carousel" <?php if ("carousel" == get_option('sc_urp_template')) echo 'selected="selected"'; ?>>
+                            Carousel
                         </option>
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
             <tr>
                 <td colspan="2">
                     <input type="submit" name="sc_urp_submit" value="save" class="button-primary"/>

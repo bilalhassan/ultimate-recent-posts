@@ -14,7 +14,8 @@ register_activation_hook(__FILE__, 'my_plugin_activate');
 
 if(!defined('SC_URP_VERSION'))
     define('SC_URP_VERSION','1.0');
-
+if(!defined('SC_URP_PATH'))
+    define('SC_URP_PATH',plugin_dir_url(__FILE__));
 
 
 
@@ -74,16 +75,22 @@ function sc_urp_load_styles_scripts(){
 
 
     //slider
-    wp_enqueue_style('sc_urp_slider_css',plugins_url() . '/ultimate-recent-posts/lib/slider/camera.css',false, SC_URP_VERSION);
-    wp_enqueue_script('sc_urp_easing_js',plugins_url() . '/ultimate-recent-posts/lib/slider/jquery.easing.1.3.js',array('jquery'),SC_URP_VERSION);
-    wp_enqueue_script('sc_urp_slider_js',plugins_url() . '/ultimate-recent-posts/lib/slider/camera.min.js',false,SC_URP_VERSION);
+    wp_enqueue_style('sc_urp_slider_css',SC_URP_PATH . 'lib/slider/camera.css',false, SC_URP_VERSION);
+    wp_enqueue_script('sc_urp_easing_js',SC_URP_PATH . 'lib/slider/jquery.easing.1.3.js',array('jquery'),SC_URP_VERSION);
+    wp_enqueue_script('sc_urp_slider_js',SC_URP_PATH . 'lib/slider/camera.min.js',false,SC_URP_VERSION);
 
+
+    //carousel
+    wp_enqueue_style('sc_urp_carousel_css',SC_URP_PATH . 'lib/carousel/owl.carousel.css',false, SC_URP_VERSION);
+    wp_enqueue_style('sc_urp_carousel_theme_css',SC_URP_PATH . 'lib/carousel/owl.theme.css',false, SC_URP_VERSION);
+    wp_enqueue_style('sc_urp_carousel_transitions_css',SC_URP_PATH . 'lib/carousel/owl.transitions.css',false, SC_URP_VERSION);
+    wp_enqueue_script('sc_urp_carousel_js',SC_URP_PATH . 'lib/carousel/owl.carousel.min.js',false,SC_URP_VERSION);
 
     // plugin main style
-    wp_enqueue_style('sc_urp_default_style',plugins_url() . '/ultimate-recent-posts/style/default.css',false, '1.0');
+    wp_enqueue_style('sc_urp_default_style',SC_URP_PATH . 'style/default.css',false, '1.0');
 
     // plugin main script
-    wp_enqueue_script('sc_urp_default_script',plugins_url() . '/ultimate-recent-posts/script/sc_urp_script.js',array('jquery'), SC_URP_VERSION);
+    wp_enqueue_script('sc_urp_default_script',SC_URP_PATH . 'script/sc_urp_script.js',array('jquery'), SC_URP_VERSION);
 
 
 }
@@ -98,10 +105,24 @@ function set_urp($atts){
 
 
 
-    include_once 'inc/urp-posts-slider.php';
+    if('slider' == get_option('sc_urp_template'))
+        include_once 'inc/urp-posts-slider.php';
+    elseif('carousel' == get_option('sc_urp_template'))
+        include_once 'inc/urp-posts-slider-carousel.php';
+
+
+
 
 
 }
+
+add_action('wp_head','set_css');
+
+function set_css(){ ?>
+    <style>
+        color: #<?php echo get_option('color');?>;
+    </style>
+<?php }
 
 
 
