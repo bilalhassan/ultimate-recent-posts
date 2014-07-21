@@ -3,3 +3,38 @@
 
 }
 
+/*-- Carousel CSS --*/
+.owl-item.loading{
+    min-height: 150px;
+    background: url(images/AjaxLoader.gif) no-repeat center center
+}
+
+#sc-carousel-slider .item{
+    margin: 3px;
+    position: relative;
+    overflow: hidden;
+
+}
+#sc-carousel-slider .item img{
+    display: block;
+    width: auto;
+    height: 150px;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+#sc-carousel-slider .item .overlay{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    font-size: 14px;
+}
+#sc-carousel-slider .item .overlay h3{
+    font-size: 16px;
+}
+
