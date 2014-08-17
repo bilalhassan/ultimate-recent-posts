@@ -21,6 +21,8 @@ if(!defined('SC_URP_PATH'))
 
 function my_plugin_activate() {
     add_option('sc_urp_activation_redirect', true);
+    
+    
     sc_urp_register_options();
 }
 
