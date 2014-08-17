@@ -16,12 +16,15 @@
         <?php $recent_posts = wp_get_recent_posts($args); ?>
         <?php foreach ($recent_posts as $post) { ?>
             <?php $url = wp_get_attachment_url(get_post_thumbnail_id($post['ID'])); ?>
+            <?php $permalink = get_permalink($post['ID']); ?>
             <div class="item">
-                <img src="<?php echo $url; ?>" />
+                <a href="<?php echo $permalink; ?>">
+                    <img src="<?php echo $url; ?>" />
+                </a>
                 <div class="overlay">
-                    <h3>
-                        <?php echo $post['post_title']; ?>
-                    </h3>
+                    <a href="<?php echo $permalink; ?>">
+                        <h3><?php echo $post['post_title']; ?></h3>
+                    </a>
                 </div>
             </div>
         <?php } ?>
