@@ -30,6 +30,8 @@ function sc_urp_register_options() {
         'sc_urp_template' => 'slider',
         'sc_urp_category' => '',
         'sc_urp_tag' => '',
+        'sc_urp_slide_timer' => '4000',
+        'sc_urp_carousel_number' => '4',
 //        'sc_urp_background_color' => '#333333'
     );
     // check if option is set, if not, add it

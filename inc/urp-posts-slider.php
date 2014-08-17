@@ -36,7 +36,7 @@
             pagination: false,
             thumbnails: false,
             fx: 'simpleFade',
-            time: 4000
+            time: <?php echo get_option('sc_urp_slide_timer'); ?>
         });
     });
 </script>

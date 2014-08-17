@@ -31,8 +31,8 @@
     jQuery(document).ready(function($){
         $("#sc-carousel-slider").owlCarousel({
 
-            autoPlay: 3000, //Set AutoPlay to 3 seconds
-            items : 4,
+            autoPlay: <?php echo get_option('sc_urp_slide_timer'); ?>, //Set AutoPlay to 3 seconds
+            items : <?php echo get_option('sc_urp_carousel_number'); ?>,
             itemsDesktop : [1199,3],
             itemsDesktopSmall : [979,3]
 
