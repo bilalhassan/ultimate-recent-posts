@@ -28,6 +28,8 @@ function sc_urp_register_options() {
     // declare options array
     $sc_urp_options = array(
         'sc_urp_template' => 'slider',
+        'sc_urp_category' => '',
+        'sc_urp_tag' => '',
 //        'sc_urp_background_color' => '#333333'
     );
     // check if option is set, if not, add it
@@ -46,7 +48,7 @@ add_action('admin_init', 'sc_urp_activation_redirect');
 function sc_urp_activation_redirect() {
     if (get_option('sc_urp_activation_redirect', false)) {
         delete_option('sc_urp_activation_redirect');
-        wp_redirect(admin_url() . 'options-general.php?page=urp-options.php');
+        wp_redirect(admin_url() . 'options-general.php?page=sc_urp_options.php');
     }
 }
 

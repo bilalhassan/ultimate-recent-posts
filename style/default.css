@@ -36,5 +36,7 @@
 }
 #sc-carousel-slider .item .overlay h3{
     font-size: 16px;
+    line-height: 20px;
+    margin: 4px 5px;
 }
 
