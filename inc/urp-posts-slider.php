@@ -21,9 +21,12 @@
         <?php $recent_posts = wp_get_recent_posts($args); ?>
         <?php foreach ($recent_posts as $post) { ?>
             <?php $url = wp_get_attachment_url(get_post_thumbnail_id($post['ID'])); ?>
-            <div data-thumb="<?php echo $url; ?>" data-src="<?php echo $url; ?>">
+            <?php $permalink = get_permalink($post['ID']); ?>
+            <div data-thumb="<?php echo $url; ?>" data-src="<?php echo $url; ?>" data-link="<?php echo $permalink; ?>">
                 <div class="camera_caption fadeFromBottom">
-                    <?php echo $post['post_title']; ?>
+                    <a href="<?php echo $permalink;?>">
+                        <?php echo $post['post_title']; ?>
+                    </a>
                 </div>
             </div>
         <?php } ?>

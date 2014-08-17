@@ -1,6 +1,10 @@
+/*-- Slider --*/
 #sc_urp_slider{
     width: 100%;
+}
 
+.camera_caption a{
+    color:#ffffff;
 }
 
 /*-- Carousel CSS --*/
@@ -38,5 +42,9 @@
     font-size: 16px;
     line-height: 20px;
     margin: 4px 5px;
+}
+
+#sc-carousel-slider .item .overlay a{
+    color: #ffffff;
 }
 
