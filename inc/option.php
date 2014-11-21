@@ -84,6 +84,7 @@
     .center{text-align: center;}
     .width70{ width: 70%;}
     .width25{ width: 25% !important;}
+    .width15{ width: 15% !important;}
     .width50{ width: 50%;}
     .width100{ width: 100%;}
     .larger{ font-size: larger;}

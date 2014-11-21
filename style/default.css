@@ -12,7 +12,8 @@
     min-height: 150px;
     background: url(images/AjaxLoader.gif) no-repeat center center
 }
-
+#sc-carousel-slider{
+}
 #sc-carousel-slider .item{
     margin: 3px;
     position: relative;

@@ -14,6 +14,9 @@
         $args = array(
             'numberposts' => '5',
             'post_status' => 'publish',
+            'post_type' => 'post',
+            'orderby' => 'post_date',
+            'order' => 'DESC',
             'category_name' => get_option('sc_urp_category'),
             'tag' => get_option('sc_urp_tag'),
         );
@@ -35,7 +38,7 @@
 <script>
     jQuery(document).ready(function($){
         $('#camera_wrap_2').camera({
-            height: '400px',
+            height: '<?php echo get_option('sc_urp_height', 400); ?>px',
             pagination: false,
             thumbnails: false,
             fx: 'simpleFade',

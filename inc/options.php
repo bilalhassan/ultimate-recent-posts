@@ -12,33 +12,49 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    
+                </tr>
+                <tr id="">
+                    <td>Slide Timer</td>
+                    <td>
+                        <select name="sc_urp_num_posts">
+                            <option value="3" <?php echo ( 2000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>2 seconds</option>
+                            <option value="4" <?php echo ( 3000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>3 seconds</option>
+                            <option value="5" <?php echo ( 4000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>4 seconds</option>
+                            <option value="6" <?php echo ( 5000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>5 seconds</option>
+                            <option value="10" <?php echo ( 10 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>Off</option>
+                            <option value="15" <?php echo ( 15 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>Off</option>
+                        </select>
+                    </td>
                 <tr id="sc_urp_slide_timer">
                     <td>Slide Timer</td>
                     <td>
                         <select name="sc_urp_slide_timer">
+                            
                             <option value="2000" <?php echo ( 2000 == get_option('sc_urp_slide_timer')) ? 'selected=selected' : ''; ?>>2 seconds</option>
                             <option value="3000" <?php echo ( 3000 == get_option('sc_urp_slide_timer')) ? 'selected=selected' : ''; ?>>3 seconds</option>
                             <option value="4000" <?php echo ( 4000 == get_option('sc_urp_slide_timer')) ? 'selected=selected' : ''; ?>>4 seconds</option>
                             <option value="5000" <?php echo ( 5000 == get_option('sc_urp_slide_timer')) ? 'selected=selected' : ''; ?>>5 seconds</option>
+                            <option value="false" <?php echo ( 'false' == get_option('sc_urp_slide_timer')) ? 'selected=selected' : ''; ?>>Off</option>
                             
                         </select>
                     </td>
                 </tr>
                 <tr id="sc_urp_carousel_number">
-                    <td>Number of Posts</td>
+                    <td>Carousel Slides per set</td>
                     <td>
                         <select name="sc_urp_carousel_number">
                             <option value="3" <?php echo ( 3 == get_option('sc_urp_carousel_number')) ? 'selected=selected' : ''; ?>>3</option>
                             <option value="4" <?php echo ( 4 == get_option('sc_urp_carousel_number')) ? 'selected=selected' : ''; ?>>4</option>
                             <option value="5" <?php echo ( 5 == get_option('sc_urp_carousel_number')) ? 'selected=selected' : ''; ?>>5</option>
                             <option value="6" <?php echo ( 6 == get_option('sc_urp_carousel_number')) ? 'selected=selected' : ''; ?>>6</option>
-                            
                         </select>
                     </td>
                 </tr>
             </tbody>
             
-            <tbody>
+            
             <tr>
                 <td>Choose Template</td>
                 <td>
@@ -54,6 +70,14 @@
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td>Height</td>
+                <td>
+                    <input type="text" name="sc_urp_height" class="width15" value="<?php echo get_option('sc_urp_height', 400); ?>"/>px
+                </td>
+            </tr>
+            
+        </table>
         <table class="widefat">
             <thead>
                 <tr>
@@ -109,13 +133,9 @@ function sc_urp_get_categories(){
     $args = array(
         'taxonomy' => 'category'
     );
-    
     $categories = get_categories($args);
-
-     return $categories;
-    
+    return $categories;
 }
-
 function sc_urp_get_posts(){
     
 }

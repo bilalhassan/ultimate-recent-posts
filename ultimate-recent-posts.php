@@ -34,7 +34,7 @@ function sc_urp_register_options() {
         'sc_urp_tag' => '',
         'sc_urp_slide_timer' => '4000',
         'sc_urp_carousel_number' => '4',
-//        'sc_urp_background_color' => '#333333'
+        'sc_urp_height' => '200px',
     );
     // check if option is set, if not, add it
     foreach ($sc_urp_options as $option_name => $option_value) {
@@ -94,11 +94,11 @@ function sc_urp_load_styles_scripts(){
 
     // plugin main style
     wp_enqueue_style('sc_urp_default_style',SC_URP_PATH . 'style/default.css',false, '1.0');
+    $custom_css = '#sc-carousel-slider .item img{ height : ' . get_option('sc_urp_height') . 'px; }';
+    wp_add_inline_style('sc_urp_default_style', $custom_css);    
 
     // plugin main script
     wp_enqueue_script('sc_urp_default_script',SC_URP_PATH . 'script/sc_urp_script.js',array('jquery'), SC_URP_VERSION);
-
-
 }
 
 

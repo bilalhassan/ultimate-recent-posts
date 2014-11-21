@@ -10,7 +10,12 @@
         <?php
         $args = array(
             'numberposts' => '10',
-            'post_status' => 'publish'
+            'post_status' => 'publish',
+            'post_type' => 'post',
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'category_name' => get_option('sc_urp_category'),
+            'tag' => get_option('sc_urp_tag'),
         );
         ?>
         <?php $recent_posts = wp_get_recent_posts($args); ?>
@@ -34,8 +39,8 @@
     jQuery(document).ready(function($){
         $("#sc-carousel-slider").owlCarousel({
 
-            autoPlay: <?php echo get_option('sc_urp_slide_timer'); ?>, //Set AutoPlay to 3 seconds
-            items : <?php echo get_option('sc_urp_carousel_number'); ?>,
+            autoPlay: <?php echo esc_js( get_option('sc_urp_slide_timer') ); ?>,
+            items : <?php echo esc_js( get_option('sc_urp_carousel_number') ); ?>,
             itemsDesktop : [1199,3],
             itemsDesktopSmall : [979,3]
 
