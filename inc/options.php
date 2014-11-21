@@ -5,10 +5,11 @@
 ?>
 <form action="" method="post" id="wptb">
     <div class="left width70">
+        <p>Add the shortcode <b>[urp_posts]</b> to the page/post/widget where you want the plugin to show
         <table class="widefat">
             <thead>
                 <tr>
-                    <th colspan="2">Appearance & Design</th>
+                    <th colspan="3">Appearance & Design</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,17 +17,21 @@
                     
                 </tr>
                 <tr id="">
-                    <td>Slide Timer</td>
+                    <td>Number of Posts (slides)</td>
                     <td>
                         <select name="sc_urp_num_posts">
-                            <option value="3" <?php echo ( 2000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>2 seconds</option>
-                            <option value="4" <?php echo ( 3000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>3 seconds</option>
-                            <option value="5" <?php echo ( 4000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>4 seconds</option>
-                            <option value="6" <?php echo ( 5000 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>5 seconds</option>
-                            <option value="10" <?php echo ( 10 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>Off</option>
-                            <option value="15" <?php echo ( 15 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>Off</option>
+                            <option value="3" <?php echo ( 3 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>3</option>
+                            <option value="4" <?php echo ( 4 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>4</option>
+                            <option value="5" <?php echo ( 5 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>5</option>
+                            <option value="6" <?php echo ( 6 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>6</option>
+                            <option value="10" <?php echo ( 10 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>10</option>
+                            <option value="15" <?php echo ( 15 == get_option('sc_urp_num_posts')) ? 'selected=selected' : ''; ?>>15</option>
                         </select>
                     </td>
+                    <td>
+                        <em>How many slides do you want in total ? Note: for carousel template, its most effective when the total slides is a multiple of the slides per set</em>
+                    </td>
+                </tr>
                 <tr id="sc_urp_slide_timer">
                     <td>Slide Timer</td>
                     <td>
@@ -40,6 +45,9 @@
                             
                         </select>
                     </td>
+                    <td>
+                        <em>How long for the next slide or slideset to load</em>
+                    </td>
                 </tr>
                 <tr id="sc_urp_carousel_number">
                     <td>Carousel Slides per set</td>
@@ -50,6 +58,9 @@
                             <option value="5" <?php echo ( 5 == get_option('sc_urp_carousel_number')) ? 'selected=selected' : ''; ?>>5</option>
                             <option value="6" <?php echo ( 6 == get_option('sc_urp_carousel_number')) ? 'selected=selected' : ''; ?>>6</option>
                         </select>
+                    </td>
+                    <td>
+                        <em>How many posts per each carousel set</em>
                     </td>
                 </tr>
             </tbody>
@@ -69,19 +80,25 @@
                         </option>
                     </select>
                 </td>
+                <td>
+                    <em>Do you want a slider, or a carousel ?</em>
+                </td>                
             </tr>
             <tr>
                 <td>Height</td>
                 <td>
-                    <input type="text" name="sc_urp_height" class="width15" value="<?php echo get_option('sc_urp_height', 400); ?>"/>px
+                    <input type="text" name="sc_urp_height" class="" value="<?php echo get_option('sc_urp_height', 400); ?>"/>px
                 </td>
+                <td>
+                    <em>Set the height of the slider or carousel in pixels. Keep changing this till it looks the way you want it to</em>
+                </td>                
             </tr>
             
         </table>
         <table class="widefat">
             <thead>
                 <tr>
-                    <th colspan="2">Filtering Options</th>
+                    <th colspan="3">Filtering Options</th>
                 </tr>
             </thead>            
             <tr>
@@ -98,12 +115,14 @@
                     </select>
                     
                 </td>
+                <td>
+                    <em>If you want to display posts from a specific category, select here. Otherwise leave it as All. Tip: This can be very handy if you want to show specific posts, not just the most recent</em>
+                </td>
             </tr>
             
             <tr>
                 <td>Choose Tags</td>
                 <td>
-
                     <select name="sc_urp_tag">
                         <option value="">All</option>
                        <?php $tags = get_tags(); ?>
@@ -113,13 +132,15 @@
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    
+                </td>
+                <td>
+                    <em>If you want to display posts with specific tag, select here. Otherwise leave it as All. Tip: This can be very handy if you want to show specific posts, not just the most recent</em>
                 </td>
             </tr>
         </table>
         <table>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <input type="submit" name="sc_urp_submit" value="save" class="button-primary"/>
                 </td>
             </tr>

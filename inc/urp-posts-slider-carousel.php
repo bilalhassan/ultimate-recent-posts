@@ -9,13 +9,13 @@
     <div id="sc-carousel-slider" class="owl-carousel owl-theme">
         <?php
         $args = array(
-            'numberposts' => '10',
+            'numberposts' => get_option('sc_urp_num_posts', 8),
             'post_status' => 'publish',
             'post_type' => 'post',
             'orderby' => 'post_date',
             'order' => 'DESC',
-            'category_name' => get_option('sc_urp_category'),
-            'tag' => get_option('sc_urp_tag'),
+            'category_name' => get_option('sc_urp_category', 0),
+            'tag' => get_option('sc_urp_tag', 0),
         );
         ?>
         <?php $recent_posts = wp_get_recent_posts($args); ?>

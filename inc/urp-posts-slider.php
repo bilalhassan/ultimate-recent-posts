@@ -2,23 +2,18 @@
 /**
  * Creates the posts slider
  */
-        echo get_option('sc_urp_category');
-        echo get_option('sc_urp_tag');
 ?>
 <div class="fluid_container">
-    <h2></h2>
-
     <div class="camera_wrap" id="camera_wrap_2">
         <?php
-
         $args = array(
-            'numberposts' => '5',
+            'numberposts' => get_option('sc_urp_num_posts', 4),
             'post_status' => 'publish',
             'post_type' => 'post',
             'orderby' => 'post_date',
             'order' => 'DESC',
-            'category_name' => get_option('sc_urp_category'),
-            'tag' => get_option('sc_urp_tag'),
+            'category_name' => get_option('sc_urp_category', 0),
+            'tag' => get_option('sc_urp_tag', 0),
         );
         ?>
         <?php $recent_posts = wp_get_recent_posts($args); ?>

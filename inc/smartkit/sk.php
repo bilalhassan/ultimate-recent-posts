@@ -164,10 +164,9 @@
 <div id="wrapper">
     <div id="gopro">
         <div class="left width50">
-            <h1><b>Ultimate Recent Posts</b></h1>
+            <h1><b>SMARTKIT</b></h1>
             <div>
-                Lightweight, Responsive and easily customizable.
-                
+                Lightweight power tools for your WordPress site
             </div>
             <div>
                 <!--<em>Why go pro? The pro version allows you to change the widget location to the right side of the screen, and adds different templates to the widget</em>-->

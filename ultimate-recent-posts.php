@@ -4,7 +4,7 @@
   Plugin URI: http://smartcatdesign.net/wp-popup
   Description: A highly customizable plugi
   Version: 1.0
-  Author: SmartCat, nik-cole
+  Author: SmartCat
   Author URI: http://smartcatdesign.net
   License: GPL v2
  */
@@ -16,8 +16,6 @@ if(!defined('SC_URP_VERSION'))
     define('SC_URP_VERSION','1.0');
 if(!defined('SC_URP_PATH'))
     define('SC_URP_PATH',plugin_dir_url(__FILE__));
-
-
 
 function my_plugin_activate() {
     add_option('sc_urp_activation_redirect', true);
@@ -35,6 +33,7 @@ function sc_urp_register_options() {
         'sc_urp_slide_timer' => '4000',
         'sc_urp_carousel_number' => '4',
         'sc_urp_height' => '200px',
+        'sc_urp_num_posts' => '8'
     );
     // check if option is set, if not, add it
     foreach ($sc_urp_options as $option_name => $option_value) {
@@ -59,19 +58,30 @@ function sc_urp_activation_redirect() {
 add_action('admin_menu', 'sc_urp_menu');
 
 function sc_urp_menu() {
-    add_options_page('Ultimate Recent Posts', 'Ultimate Recent Posts Settings', 'administrator', 'sc_urp_options.php', 'sc_urp_options');
+    
+    global $menu;
+    if(!isset( $menu['smartkit_meow']))
+        add_menu_page('Smartkit', 'Smartkit', 'manage_options', 'smartkit_menu', 'smartkit_meow', SC_URP_PATH . 'img/smartcat.png' );
+    
+    add_submenu_page('smartkit_menu', 'Ultimate Recent Posts', 'Ultimate Recent Posts', 'manage_options', 'smartkit_urp', 'sc_urp_options');
 }
-
-function sc_urp_options(){
-
-    if(isset($_REQUEST['sc_urp_submit']) && $_REQUEST['sc_urp_submit'] == 'save'){
-
-        sc_urp_register_options();
-
+/*
+ * Create smartkit menu
+ */
+if( !function_exists('smartkit_meow') ) :
+    function smartkit_meow(){
+        include_once 'inc/smartkit/sk.php';
     }
+endif;
 
+/*
+ * Create Plugin menu
+ */
+function sc_urp_options(){
+    if(isset($_REQUEST['sc_urp_submit']) && $_REQUEST['sc_urp_submit'] == 'save'){
+        sc_urp_register_options();
+    }
     include_once 'inc/options.php';
-
 }
 
 
@@ -103,32 +113,24 @@ function sc_urp_load_styles_scripts(){
 
 
 // create the shortcode
-add_shortcode('urp','set_urp');
+add_shortcode('urp_posts','set_urp');
 function set_urp($atts){
     extract(shortcode_atts(array(
         'id' => '1'
     ), $atts));
-
-
-
-    if('slider' == get_option('sc_urp_template'))
-        include_once 'inc/urp-posts-slider.php';
-    elseif('carousel' == get_option('sc_urp_template'))
-        include_once 'inc/urp-posts-slider-carousel.php';
-
-
-
-
-
+    
+    global $content;
+    ob_start();    
+    
+    if('slider' == get_option('sc_urp_template')) :
+        include 'inc/urp-posts-slider.php';
+        $output = ob_get_clean();
+    elseif('carousel' == get_option('sc_urp_template')) :
+        include 'inc/urp-posts-slider-carousel.php';
+        $output = ob_get_clean();
+    endif;
+    return $output;
 }
-
-add_action('wp_head','set_css');
-
-function set_css(){ ?>
-    <style>
-        color: #<?php echo get_option('color');?>;
-    </style>
-<?php }
 
 
 
