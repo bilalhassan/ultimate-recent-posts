@@ -87,7 +87,7 @@
             <tr>
                 <td>Height</td>
                 <td>
-                    <input type="text" name="sc_urp_height" class="" value="<?php echo get_option('sc_urp_height', 400); ?>"/>px
+                    <input type="text" name="sc_urp_height" class="" value="<?php echo esc_html( get_option('sc_urp_height', 400) ); ?>"/>px
                 </td>
                 <td>
                     <em>Set the height of the slider or carousel in pixels. Keep changing this till it looks the way you want it to</em>

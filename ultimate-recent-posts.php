@@ -2,22 +2,21 @@
 /*
   Plugin Name: Ultimate Recent Posts
   Plugin URI: http://smartcatdesign.net/wp-popup
-  Description: A highly customizable plugi
+  Description: A lightweight, responsive posts display slider and carousel plugin, with an easy to use options page
   Version: 1.0
   Author: SmartCat
   Author URI: http://smartcatdesign.net
   License: GPL v2
  */
 
-
-register_activation_hook(__FILE__, 'my_plugin_activate');
+register_activation_hook(__FILE__, 'sc_urp_activate');
 
 if(!defined('SC_URP_VERSION'))
     define('SC_URP_VERSION','1.0');
 if(!defined('SC_URP_PATH'))
     define('SC_URP_PATH',plugin_dir_url(__FILE__));
 
-function my_plugin_activate() {
+function sc_urp_activate() {
     add_option('sc_urp_activation_redirect', true);
     
     
@@ -51,7 +50,7 @@ add_action('admin_init', 'sc_urp_activation_redirect');
 function sc_urp_activation_redirect() {
     if (get_option('sc_urp_activation_redirect', false)) {
         delete_option('sc_urp_activation_redirect');
-        wp_redirect(admin_url() . 'options-general.php?page=sc_urp_options.php');
+        wp_redirect( admin_url('admin.php?page=smartkit_urp') );
     }
 }
 

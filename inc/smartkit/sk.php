@@ -176,12 +176,10 @@
             <!--<a href="http://smartcatdesign.net/wp-construction-mode-pro-wordpress-plugin/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>-->
         </div>
     </div>
-
     <div class="width25 right">
         <p class="width100">
-            <img class="width100" src="<?php echo SC_URP_PATH; ?>/images/smartcat_wordpress_plugins.png"/>
+            
         </p>
-        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FSmartcatDesign&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=233286813420319" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe>
         <table class="widefat">
             <thead>
             <tr>
@@ -193,21 +191,18 @@
                     If you need priority support, or specific customization, please <a href="http://smartcatdesign.net">contact me.</a>
                 </td>
             </tr>
-
-            </thead>
-        </table>
-        <table class="widefat">
-            <thead>
-            <tr>
-                <th>
-                    <b>About the Developers</b>
-                </th>
-            </tr>
             <tr>
                 <td>
-
+                    <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FSmartcatDesign&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=233286813420319" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe
                 </td>
             </tr>
             </thead>
         </table>
     </div>
+    
+    <div class="width70 left welcome-panel">
+        <h2>We're currently working on this section! More features coming in the next update</h2>
+    </div>
+    <div class="clear"></div>
+    
+</div>
