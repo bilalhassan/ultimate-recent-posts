@@ -3,7 +3,7 @@
   Plugin Name: Ultimate Recent Posts
   Plugin URI: http://smartcatdesign.net/wp-popup
   Description: A lightweight, responsive posts display slider and carousel plugin, with an easy to use options page
-  Version: 1.0
+  Version: 1.1
   Author: SmartCat
   Author URI: http://smartcatdesign.net
   License: GPL v2
