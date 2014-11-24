@@ -186,12 +186,11 @@
         <table class="widefat">
             <thead>
             <tr>
-                <th><b>Looking for Support?</b> </th>
+                <th><b>Report Bugs</b> </th>
             </tr>
             <tr>
                 <td>
-                    If you have any questions, please head to my <a target="_blank" href="http://smartcatdesign.net/support/">website</a>, or use the <a target="_blank" href="http://wordpress.org/plugins/our-team-enhanced/">support forums</a> on WordPress.org. <br><br>
-                    If you need priority support, or specific customization, please <a href="http://smartcatdesign.net">contact me.</a>
+                    If you catch any errors please <a target="_blank" href="http://smartcatdesign.net/support">report them here</a>
                 </td>
             </tr>
 

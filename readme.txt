@@ -4,7 +4,7 @@ Donate link: http://smartcatdesign.net
 Tags: recent,post,slider,carousel,timer,template,image,background,title,latest,article,slide,shortcode,widget
 Requires at least: 3.2
 Tested up to: 4.01
-Stable tag: 1.0
+Stable tag: 0.9
 License: GPLv2 or later
 
 Turn your posts into an appealing slider or a carousel in a couple of minutes! Easy to use, lightweight and responsive plugin that is a great way to showcase your products

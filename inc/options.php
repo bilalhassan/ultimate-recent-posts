@@ -5,7 +5,11 @@
 ?>
 <form action="" method="post" id="wptb">
     <div class="left width70">
-        <p>Add the shortcode <b>[urp_posts]</b> to the page/post/widget where you want the plugin to show
+        <ol>
+            <li>Change the plugin settings below to your liking</li>
+            <li>Add the shortcode <b>[urp_posts]</b> to the page/post/widget where you want the plugin to show</li>
+        </ol>
+        <p>
         <table class="widefat">
             <thead>
                 <tr>
@@ -93,7 +97,15 @@
                     <em>Set the height of the slider or carousel in pixels. Keep changing this till it looks the way you want it to</em>
                 </td>                
             </tr>
-            
+            <tr>
+                <td>Title Color</td>
+                <td>
+                    <input type="text" class="wp_popup_color" id="bg_colorbox" name="sc_urp_text_color" value="<?php echo get_option('sc_urp_text_color'); ?>"/>
+                </td>
+                <td>
+                    <em>Click to select the text color, or enter a hex color value</em>
+                </td>
+            </tr> 
         </table>
         <table class="widefat">
             <thead>

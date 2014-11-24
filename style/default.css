@@ -6,7 +6,9 @@
 .camera_caption a{
     color:#ffffff;
 }
-
+.camera_wrap .camera_caption a{
+    font-size: 28px;
+}
 /*-- Carousel CSS --*/
 .owl-item.loading{
     min-height: 150px;
